@@ -369,6 +369,118 @@
             ],
             "stylesData": "",
             "extends": []
+        },
+        {
+            "name": "PlaceholderComponent",
+            "id": "component-PlaceholderComponent-527e8765a7c3c2067b8459ba1269a4c7ba68bd50981c7e23c62820bdcbbd11916cc79f8e02948d330b20680b0e883541fb91bb334092111cf485df6c94518afd",
+            "file": "src/app/components/placeholder/placeholder.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ms-placeholder",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./placeholder.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "defaultValue": "'white'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nPlaceholder background color\n",
+                    "description": "<p>Placeholder background color</p>\n",
+                    "line": 32,
+                    "type": "TPlaceholderBackgroundColor",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "label",
+                    "defaultValue": "'Placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "jsdoctags": [
+                        {
+                            "pos": 491,
+                            "end": 504,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 334,
+                            "tagName": {
+                                "pos": 492,
+                                "end": 500,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nPlaceholder label\n",
+                    "description": "<p>Placeholder label</p>\n",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nPlaceholder size\n",
+                    "description": "<p>Placeholder size</p>\n",
+                    "line": 26,
+                    "type": "TPlaceholderSize",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "NgStyle"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\nexport type TPlaceholderSize = 'small' | 'medium' | 'large';\nexport type TPlaceholderBackgroundColor = 'white' | 'black';\n\n@Component({\n  selector: 'ms-placeholder',\n  standalone: true,\n  imports: [NgClass, NgStyle],\n  templateUrl: './placeholder.component.html',\n  styleUrl: './placeholder.component.css',\n})\nexport default class PlaceholderComponent {\n  /**\n   * Placeholder label\n   * @required\n   */\n  @Input({ required: true })\n  label = 'Placeholder';\n\n  /**\n   * Placeholder size\n   */\n  @Input()\n  size: TPlaceholderSize = 'medium';\n\n  /**\n   * Placeholder background color\n   */\n  @Input()\n  backgroundColor?: TPlaceholderBackgroundColor = 'white';\n\n  public get classes(): string[] {\n    return ['placeholder', `placeholder--${this.size}`];\n  }\n}\n",
+            "styleUrl": "./placeholder.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 34
+                    }
+                }
+            },
+            "templateData": "<div\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>{{ label }}</div>"
         }
     ],
     "modules": [
@@ -441,7 +553,30 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "TPlaceholderBackgroundColor",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"white\" | \"black\"",
+                "file": "src/app/components/placeholder/placeholder.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "TPlaceholderSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"small\" | \"medium\" | \"large\"",
+                "file": "src/app/components/placeholder/placeholder.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/environments/environment.prod.ts": [
@@ -471,11 +606,36 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/app/components/placeholder/placeholder.component.ts": [
+                {
+                    "name": "TPlaceholderBackgroundColor",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"white\" | \"black\"",
+                    "file": "src/app/components/placeholder/placeholder.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                },
+                {
+                    "name": "TPlaceholderSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"small\" | \"medium\" | \"large\"",
+                    "file": "src/app/components/placeholder/placeholder.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
-        "count": 11,
+        "count": 19,
         "status": "low",
         "files": [
             {
@@ -486,6 +646,15 @@
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
+            },
+            {
+                "filePath": "src/app/components/placeholder/placeholder.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PlaceholderComponent",
+                "coveragePercent": 75,
+                "coverageCount": "3/4",
+                "status": "good"
             },
             {
                 "filePath": "src/environments/environment.prod.ts",
