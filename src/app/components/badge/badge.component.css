@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: left;
+  white-space: nowrap;
+  background-color: #f4f6fb;
+
+  span.icons {
+    color: #dde4f4;
+  }
+
+  &.error {
+    background-color: #feeae4;
+
+    span.icons {
+      color: #f04b40;
+    }
+  }
+
+  &.warning {
+    background-color: #fff8e0;
+
+    span.icons {
+      color: #ffc700;
+    }
+  }
+
+  &.success {
+    background-color: #e9f8f3;
+
+    span.icons {
+      color: #3aa981;
+    }
+  }
+
+  ::ng-deep {
+    > .icons:not(:last-child) {
+      margin-right: var(--foundation-inner-unit-default-horizontal-gap);
+    }
+  }
+}

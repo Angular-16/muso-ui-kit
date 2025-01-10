@@ -1,7 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-export type TButton = 'small' | 'medium' | 'large';
+export type TButtonType = 'small' | 'medium' | 'large';
 
 @Component({
   selector: 'ms-button',
@@ -27,7 +27,7 @@ export class ButtonComponent {
    * How large should the button be?
    */
   @Input()
-  size: TButton = 'medium';
+  size: TButtonType = 'medium';
 
   /**
    * Button contents
@@ -44,10 +44,8 @@ export class ButtonComponent {
   onClick = new EventEmitter<Event>();
 
   public get classes(): string[] {
-    const mode = this.primary
-      ? 'storybook-button--primary'
-      : 'storybook-button--secondary';
+    const mode = this.primary ? 'ms-button--primary' : 'ms-button--secondary';
 
-    return ['storybook-button', `storybook-button--${this.size}`, mode];
+    return ['ms-button', `ms-button--${this.size}`, mode];
   }
 }
