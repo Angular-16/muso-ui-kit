@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-export type TBadgeType = 'default' | 'warning' | 'error' | 'success';
+export type TBadge = 'default' | 'warning' | 'error' | 'success';
 
 @Component({
   selector: 'ms-badge',
@@ -8,13 +8,9 @@ export type TBadgeType = 'default' | 'warning' | 'error' | 'success';
   imports: [],
   templateUrl: './badge.component.html',
   styleUrl: './badge.component.css',
-  host: { class: `default` },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BadgeComponent {
-  @Input({
-    alias: 'type',
-    required: false,
-  })
-  badgeType: TBadgeType = 'default';
+  /** Badge type */
+  type = input.required<TBadge>();
 }

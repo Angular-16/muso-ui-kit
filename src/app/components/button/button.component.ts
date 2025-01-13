@@ -7,7 +7,7 @@ import {
   input,
 } from '@angular/core';
 
-export type TButtonType = 'small' | 'medium' | 'large';
+export type TButton = 'small' | 'medium' | 'large';
 
 @Component({
   selector: 'ms-button',
@@ -21,17 +21,17 @@ export default class Button {
   /**
    * Is this the principal call to action on the page?
    */
-  primary = input(false);
+  primary = input<boolean>(false);
 
   /**
    * Background color button
    */
-  backgroundColor = input();
+  backgroundColor = input<string>();
 
   /**
    * Button size
    */
-  size = input<TButtonType>('medium');
+  size = input<TButton>('medium');
 
   /**
    * Button contents
@@ -47,7 +47,7 @@ export default class Button {
   onClick = new EventEmitter<Event>();
 
   public get classes(): string[] {
-    const mode = this.primary ? 'ms-button--primary' : 'ms-button--secondary';
+    const mode = this.primary() ? 'ms-button--primary' : 'ms-button--secondary';
 
     return ['ms-button', `ms-button--${this.size()}`, mode];
   }

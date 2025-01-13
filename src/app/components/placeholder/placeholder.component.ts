@@ -1,5 +1,10 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  Input,
+} from '@angular/core';
 
 export type TPlaceholderSize = 'small' | 'medium' | 'large';
 export type TPlaceholderBackgroundColor = 'white' | 'black';
@@ -17,22 +22,19 @@ export default class Placeholder {
    * Placeholder label
    * @required
    */
-  @Input({ required: true })
-  label = 'Placeholder';
+  label = input.required();
 
   /**
    * Placeholder size
    */
-  @Input()
-  size: TPlaceholderSize = 'medium';
+  size = input<TPlaceholderSize>('medium');
 
   /**
    * Placeholder background color
    */
-  @Input()
-  backgroundColor?: TPlaceholderBackgroundColor = 'white';
+  backgroundColor = input<TPlaceholderBackgroundColor>('white');
 
   public get classes(): string[] {
-    return ['placeholder', `placeholder--${this.size}`];
+    return ['placeholder', `placeholder--${this.size()}`];
   }
 }
