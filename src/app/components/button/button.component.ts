@@ -4,7 +4,9 @@ import {
   Component,
   EventEmitter,
   Output,
+  OutputEmitterRef,
   input,
+  output,
 } from '@angular/core';
 
 export type TButton = 'small' | 'medium' | 'large';
@@ -43,8 +45,7 @@ export default class Button {
   /**
    * Optional click handler
    */
-  @Output()
-  onClick = new EventEmitter<Event>();
+  onClick: OutputEmitterRef<Event> = output();
 
   public get classes(): string[] {
     const mode = this.primary() ? 'ms-button--primary' : 'ms-button--secondary';

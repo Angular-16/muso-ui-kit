@@ -78,12 +78,11 @@
         },
         {
             "name": "BadgeComponent",
-            "id": "component-BadgeComponent-8629b3e29762b163c6c0ca2bceeadc0df3ed46ac26f491babcd89bc9368768a8411071c11ee59a14876631de63f344607381ce008475d318b31ab396103f8d09",
+            "id": "component-BadgeComponent-55b35093f6db2015b7d8a6121b49e212416150990e2ff34b08920fcce2fd388de666f00e1c288b8c9baab243ca8c332b1f2b7f7e97dfa7b9047254bd9dda799f",
             "file": "src/app/components/badge/badge.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
-            "host": {},
             "inputs": [],
             "outputs": [],
             "providers": [],
@@ -95,21 +94,21 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
-                    "required": true,
                     "name": "type",
-                    "defaultValue": "'default'",
+                    "defaultValue": "input.required<TBadge>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "optional": true,
-                    "line": 19,
-                    "type": "TBadgeType",
-                    "decorators": []
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Badge type</p>\n",
+                    "line": 15,
+                    "rawdescription": "\nBadge type"
                 }
             ],
-            "outputsClass": [],
-            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -120,7 +119,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\nexport type TBadgeType = 'default' | 'warning' | 'error' | 'success';\n\n@Component({\n  selector: 'ms-badge',\n  standalone: true,\n  imports: [],\n  templateUrl: './badge.component.html',\n  styleUrl: './badge.component.css',\n  host: { class: `default` },\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BadgeComponent {\n  @Input({\n    alias: 'type',\n    required: false,\n  })\n  badgeType: TBadgeType = 'default';\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, input } from '@angular/core';\n\nexport type TBadge = 'default' | 'warning' | 'error' | 'success';\n\n@Component({\n  selector: 'ms-badge',\n  standalone: true,\n  imports: [],\n  templateUrl: './badge.component.html',\n  styleUrl: './badge.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BadgeComponent {\n  /** Badge type */\n  type = input.required<TBadge>();\n}\n",
             "styleUrl": "./badge.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -130,7 +129,7 @@
         },
         {
             "name": "Button",
-            "id": "component-Button-e95b632aeb56081b5b463454a9331081f07eb4ae947fbab90f33353ef168b8e999ed542ba87b5a5f4683272f09f2a5d1352defec0ee75aac14a435e580c44d1e",
+            "id": "component-Button-33952e1b974a9742a2003bb4223fd1e9ff4025374bed63bc6cbe580edcd93df5f2383b6bb4503adcca5d5998d40a7a8e16429659611738a8b78babcc9d6ce015",
             "file": "src/app/components/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -147,28 +146,17 @@
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nOptional click handler\n",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 47,
-                    "type": "EventEmitter"
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [
                 {
                     "name": "backgroundColor",
-                    "defaultValue": "input()",
+                    "defaultValue": "input<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "<p>Background color button</p>\n",
-                    "line": 29,
+                    "line": 31,
                     "rawdescription": "\n\nBackground color button\n"
                 },
                 {
@@ -179,19 +167,19 @@
                     "type": "",
                     "optional": false,
                     "description": "<p>Button contents</p>\n",
-                    "line": 41,
+                    "line": 43,
                     "rawdescription": "\n\nButton contents\n\n",
                     "jsdoctags": [
                         {
-                            "pos": 742,
-                            "end": 755,
+                            "pos": 781,
+                            "end": 794,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 334,
                             "tagName": {
-                                "pos": 743,
-                                "end": 751,
+                                "pos": 782,
+                                "end": 790,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -203,25 +191,36 @@
                     ]
                 },
                 {
+                    "name": "onClick",
+                    "defaultValue": "output()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "OutputEmitterRef<Event>",
+                    "optional": false,
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 48,
+                    "rawdescription": "\n\nOptional click handler\n"
+                },
+                {
                     "name": "primary",
-                    "defaultValue": "input(false)",
+                    "defaultValue": "input<boolean>(false)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 24,
+                    "line": 26,
                     "rawdescription": "\n\nIs this the principal call to action on the page?\n"
                 },
                 {
                     "name": "size",
-                    "defaultValue": "input<TButtonType>('medium')",
+                    "defaultValue": "input<TButton>('medium')",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "<p>Button size</p>\n",
-                    "line": 34,
+                    "line": 36,
                     "rawdescription": "\n\nButton size\n"
                 }
             ],
@@ -242,7 +241,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Output,\n  input,\n} from '@angular/core';\n\nexport type TButtonType = 'small' | 'medium' | 'large';\n\n@Component({\n  selector: 'ms-button',\n  standalone: true,\n  imports: [NgClass, NgStyle],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport default class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  primary = input(false);\n\n  /**\n   * Background color button\n   */\n  backgroundColor = input();\n\n  /**\n   * Button size\n   */\n  size = input<TButtonType>('medium');\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  label = input<string>('button label');\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'ms-button--primary' : 'ms-button--secondary';\n\n    return ['ms-button', `ms-button--${this.size()}`, mode];\n  }\n}\n",
+            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Output,\n  OutputEmitterRef,\n  input,\n  output,\n} from '@angular/core';\n\nexport type TButton = 'small' | 'medium' | 'large';\n\n@Component({\n  selector: 'ms-button',\n  standalone: true,\n  imports: [NgClass, NgStyle],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport default class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  primary = input<boolean>(false);\n\n  /**\n   * Background color button\n   */\n  backgroundColor = input<string>();\n\n  /**\n   * Button size\n   */\n  size = input<TButton>('medium');\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  label = input<string>('button label');\n\n  /**\n   * Optional click handler\n   */\n  onClick: OutputEmitterRef<Event> = output();\n\n  public get classes(): string[] {\n    const mode = this.primary() ? 'ms-button--primary' : 'ms-button--secondary';\n\n    return ['ms-button', `ms-button--${this.size()}`, mode];\n  }\n}\n",
             "styleUrl": "./button.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -255,11 +254,11 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 49
+                        "line": 50
                     }
                 }
             },
-            "templateData": "<button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>{{ label }}</button>"
+            "templateData": "<button type=\"button\" (click)=\"onClick.emit($event)\" [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\">{{ label() }}</button>"
         },
         {
             "name": "Header",
@@ -502,7 +501,7 @@
         },
         {
             "name": "Placeholder",
-            "id": "component-Placeholder-e19e322655ffc33fc7e7cc22d8f4e5ebf623495a192c0a8bc8ef2d1b49d06fa9f1a4c4974fc25c68b1c512c9e62e1c9f5d74a20ece7febefdf8d97e5d4b81da8",
+            "id": "component-Placeholder-424f3d8ce839cc6d69e9cfa88eff39e479eca1790d0a2d1ca0536fbf5ea3187740eea4e5745b27d93248a226c46a9300b6720df45a951ec88006b77f6bfe60b5",
             "file": "src/app/components/placeholder/placeholder.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -518,36 +517,41 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
                     "name": "backgroundColor",
-                    "defaultValue": "'white'",
+                    "defaultValue": "input<TPlaceholderBackgroundColor>('white')",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nPlaceholder background color\n",
+                    "type": "",
+                    "optional": false,
                     "description": "<p>Placeholder background color</p>\n",
-                    "line": 33,
-                    "type": "TPlaceholderBackgroundColor",
-                    "decorators": []
+                    "line": 35,
+                    "rawdescription": "\n\nPlaceholder background color\n"
                 },
                 {
-                    "required": true,
                     "name": "label",
-                    "defaultValue": "'Placeholder'",
+                    "defaultValue": "input.required()",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "type": "",
                     "optional": false,
+                    "description": "<p>Placeholder label</p>\n",
+                    "line": 25,
+                    "rawdescription": "\n\nPlaceholder label\n",
                     "jsdoctags": [
                         {
-                            "pos": 558,
-                            "end": 571,
+                            "pos": 574,
+                            "end": 587,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 334,
                             "tagName": {
-                                "pos": 559,
-                                "end": 567,
+                                "pos": 575,
+                                "end": 583,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -556,27 +560,20 @@
                             },
                             "comment": ""
                         }
-                    ],
-                    "rawdescription": "\n\nPlaceholder label\n",
-                    "description": "<p>Placeholder label</p>\n",
-                    "line": 21,
-                    "type": "string",
-                    "decorators": []
+                    ]
                 },
                 {
                     "name": "size",
-                    "defaultValue": "'medium'",
+                    "defaultValue": "input<TPlaceholderSize>('medium')",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nPlaceholder size\n",
+                    "type": "",
+                    "optional": false,
                     "description": "<p>Placeholder size</p>\n",
-                    "line": 27,
-                    "type": "TPlaceholderSize",
-                    "decorators": []
+                    "line": 30,
+                    "rawdescription": "\n\nPlaceholder size\n"
                 }
             ],
-            "outputsClass": [],
-            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -594,7 +591,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\nexport type TPlaceholderSize = 'small' | 'medium' | 'large';\nexport type TPlaceholderBackgroundColor = 'white' | 'black';\n\n@Component({\n  selector: 'ms-placeholder',\n  standalone: true,\n  imports: [NgClass, NgStyle],\n  templateUrl: './placeholder.component.html',\n  styleUrl: './placeholder.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport default class Placeholder {\n  /**\n   * Placeholder label\n   * @required\n   */\n  @Input({ required: true })\n  label = 'Placeholder';\n\n  /**\n   * Placeholder size\n   */\n  @Input()\n  size: TPlaceholderSize = 'medium';\n\n  /**\n   * Placeholder background color\n   */\n  @Input()\n  backgroundColor?: TPlaceholderBackgroundColor = 'white';\n\n  public get classes(): string[] {\n    return ['placeholder', `placeholder--${this.size}`];\n  }\n}\n",
+            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  input,\n  Input,\n} from '@angular/core';\n\nexport type TPlaceholderSize = 'small' | 'medium' | 'large';\nexport type TPlaceholderBackgroundColor = 'white' | 'black';\n\n@Component({\n  selector: 'ms-placeholder',\n  standalone: true,\n  imports: [NgClass, NgStyle],\n  templateUrl: './placeholder.component.html',\n  styleUrl: './placeholder.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport default class Placeholder {\n  /**\n   * Placeholder label\n   * @required\n   */\n  label = input.required();\n\n  /**\n   * Placeholder size\n   */\n  size = input<TPlaceholderSize>('medium');\n\n  /**\n   * Placeholder background color\n   */\n  backgroundColor = input<TPlaceholderBackgroundColor>('white');\n\n  public get classes(): string[] {\n    return ['placeholder', `placeholder--${this.size()}`];\n  }\n}\n",
             "styleUrl": "./placeholder.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -607,7 +604,7 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 35
+                        "line": 37
                     }
                 }
             },
@@ -686,7 +683,7 @@
         "functions": [],
         "typealiases": [
             {
-                "name": "TBadgeType",
+                "name": "TBadge",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"default\" | \"warning\" | \"error\" | \"success\"",
@@ -697,7 +694,7 @@
                 "kind": 192
             },
             {
-                "name": "TButtonType",
+                "name": "TButton",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"small\" | \"medium\" | \"large\"",
@@ -762,7 +759,7 @@
         "groupedTypeAliases": {
             "src/app/components/badge/badge.component.ts": [
                 {
-                    "name": "TBadgeType",
+                    "name": "TBadge",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "\"default\" | \"warning\" | \"error\" | \"success\"",
@@ -775,7 +772,7 @@
             ],
             "src/app/components/button/button.component.ts": [
                 {
-                    "name": "TButtonType",
+                    "name": "TButton",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "\"small\" | \"medium\" | \"large\"",
@@ -814,7 +811,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 14,
+        "count": 18,
         "status": "low",
         "files": [
             {
@@ -831,9 +828,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "BadgeComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
+                "coveragePercent": 50,
+                "coverageCount": "1/2",
+                "status": "medium"
             },
             {
                 "filePath": "src/app/components/button/button.component.ts",
