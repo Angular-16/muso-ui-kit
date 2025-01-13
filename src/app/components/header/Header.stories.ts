@@ -3,7 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { fn } from '@storybook/test';
 import { CommonModule } from '@angular/common';
 
-import { ButtonComponent } from '../app/components/button/button.component';
+import Button from '../button/button.component';
 import Header from './header.component';
 
 const meta: Meta<Header> = {
@@ -12,7 +12,7 @@ const meta: Meta<Header> = {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      declarations: [ButtonComponent],
+      declarations: [Button],
       imports: [CommonModule],
     }),
   ],

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import Placeholder from '../app/components/placeholder/placeholder.component';
+
+import Placeholder from './placeholder.component';
 
 const meta: Meta<Placeholder> = {
   title: 'Example/Placeholder',

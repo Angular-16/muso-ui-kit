@@ -1,5 +1,11 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+  input,
+} from '@angular/core';
 
 export type TButtonType = 'small' | 'medium' | 'large';
 
@@ -9,33 +15,30 @@ export type TButtonType = 'small' | 'medium' | 'large';
   imports: [NgClass, NgStyle],
   templateUrl: './button.component.html',
   styleUrl: './button.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
+export default class Button {
   /**
    * Is this the principal call to action on the page?
    */
-  @Input()
-  primary = false;
+  primary = input(false);
 
   /**
-   * What background color to use
+   * Background color button
    */
-  @Input()
-  backgroundColor?: string;
+  backgroundColor = input();
 
   /**
-   * How large should the button be?
+   * Button size
    */
-  @Input()
-  size: TButtonType = 'medium';
+  size = input<TButtonType>('medium');
 
   /**
    * Button contents
    *
    * @required
    */
-  @Input()
-  label = 'Button';
+  label = input<string>('button label');
 
   /**
    * Optional click handler
@@ -46,6 +49,6 @@ export class ButtonComponent {
   public get classes(): string[] {
     const mode = this.primary ? 'ms-button--primary' : 'ms-button--secondary';
 
-    return ['ms-button', `ms-button--${this.size}`, mode];
+    return ['ms-button', `ms-button--${this.size()}`, mode];
   }
 }

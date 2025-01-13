@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 export type TPlaceholderSize = 'small' | 'medium' | 'large';
 export type TPlaceholderBackgroundColor = 'white' | 'black';
@@ -10,8 +10,9 @@ export type TPlaceholderBackgroundColor = 'white' | 'black';
   imports: [NgClass, NgStyle],
   templateUrl: './placeholder.component.html',
   styleUrl: './placeholder.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PlaceholderComponent {
+export default class Placeholder {
   /**
    * Placeholder label
    * @required
